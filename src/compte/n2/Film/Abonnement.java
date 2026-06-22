@@ -4,19 +4,29 @@ enum typeAbonnement{
     premium,standard,basique
 }
 public class Abonnement {
-    private int prix;
+    private double prix;
     private typeAbonnement type;
+    private String duree;
 
-    public Abonnement(int prix, typeAbonnement type) {
+    public Abonnement(double prix, typeAbonnement type,String duree) {
         this.prix = prix;
         this.type = type;
+        this.duree=duree;
     }
 
-    public int getPrix() {
+    public String getDuree() {
+        return duree;
+    }
+
+    public void setDuree(String duree) {
+        this.duree = duree;
+    }
+
+    public double getPrix() {
         return prix;
     }
 
-    public void setPrix(int prix) {
+    public void setPrix(double prix) {
         this.prix = prix;
     }
 
@@ -26,5 +36,8 @@ public class Abonnement {
 
     public void setType(typeAbonnement type) {
         this.type = type;
+    }
+    public String afficherInfos(){
+        return "l'abonnement "+type+" est de "+prix+" pendant "+duree;
     }
 }
