@@ -37,6 +37,7 @@ public class Abonnement {
     public void setType(typeAbonnement type) {
         this.type = type;
     }
+
     public String afficherInfos(){
         return "l'abonnement "+type+" est de "+prix+" pendant "+duree;
     }

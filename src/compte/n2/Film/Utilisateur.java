@@ -1,6 +1,8 @@
 package compte.n2.Film;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 public class Utilisateur {
     private String nom;
@@ -76,6 +78,46 @@ public class Utilisateur {
 
     public void setArchives(List<Contenue> archives) {
         this.archives = archives;
+    }
+
+    public void donnerAvis(Contenue c,Avis nouvelAvis){
+        c.getListeAvis().add(nouvelAvis);
+    }
+    public void ajouterFavoris(Contenue c){
+        favorie.add(c);
+    }
+    public List<Contenue> voirArchive(){
+        return archives;
+    }
+    public void choisirAbonnement(Abonnement a){
+        abonnement=a;
+    }
+    public List<Contenue> chercherFilmParTitre(String titre,List<Contenue> listeContenue){
+        List<Contenue> resulats=new ArrayList<>();
+        for(Contenue c: listeContenue){
+            if(c.getTitre().toLowerCase().contains(titre.toLowerCase())){
+                resulats.add(c);
+            }
+        };
+        return resulats;
+    }
+    public List<Contenue> chercherFilmParGenre(GenreFilm genre,List<Contenue> listeContenue) {
+        List<Contenue> resultats = new ArrayList<>();
+        for (Contenue c : listeContenue) {
+            if (c.getGenre() == genre) {
+                resultats.add(c);
+            }
+        }
+        return resultats;
+    }
+    public List<Contenue> chercherParCible(UtilisateurCible cible,List<Contenue> listeContenue) {
+        List<Contenue> resultats = new ArrayList<>();
+        for (Contenue c : listeContenue) {
+            if (c.getCible() == cible) {
+                resultats.add(c);
+            }
+        }
+        return resultats;
     }
 }
 
